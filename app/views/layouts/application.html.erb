@@ -11,6 +11,8 @@
   </head>
 
   <body>
+    <div style="color: red;"><%= flash[:alert] %></div>
+    <div style="color: green;"><%= flash[:notice] %></div>
     <%= yield %>
   </body>
 </html>

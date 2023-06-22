@@ -1,0 +1,12 @@
+<h1>Epic Posts</h1>
+
+<hr>
+
+<% if @user %>
+  <h2>Welcome <%= @user.username %></h2>
+  <p>Here are some epic posts for you</p>
+
+  <%= button_to "Logout", logout_path, method: :delete %>
+<% else %>
+  <p> Want to view or create a post? Log in <%= link_to "here", sign_in_path %></p>
+<% end %>
