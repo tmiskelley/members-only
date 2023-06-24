@@ -4,7 +4,7 @@
 
 <% if @user %>
   <h2>Welcome <%= @user.username %></h2>
-  <p>Here are some epic posts for you</p>
+  <p>Check out member posts <%= link_to "here", posts_path %></p>
 
   <%= button_to "Logout", logout_path, method: :delete %>
 <% else %>
