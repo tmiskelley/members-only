@@ -3,6 +3,10 @@ class PostsController < ApplicationController
   
   def index
     @posts = Post.all
+
+    if session[:user_id]
+      @user = User.find_by(id: session[:user_id])
+    end
   end
   
   def new
@@ -33,7 +37,7 @@ class PostsController < ApplicationController
   def require_login
     unless logged_in?
       flash[:alert] = "You must be logged in to access this section"
-      redirect_to root_path
+      redirect_to sign_in_path
     end
   end
 

@@ -11,5 +11,5 @@ Rails.application.routes.draw do
 
   delete "logout", to: "sessions#destroy"
 
-  root to: "home#index"
+  root to: "posts#index"
 end

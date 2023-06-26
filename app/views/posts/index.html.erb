@@ -1,5 +1,11 @@
 <h1>Member Posts</h1>
 
+<hr><br>
+
+<% if @user %>
+  <h2>Logged in as: <%= @user.username %></h2>
+<% end %>
+
 <% @posts.each do |post| %>
   <div style="padding-left: 1rem; border: solid black 1px;">
     <h2><%= post.title %></h2>
@@ -10,5 +16,9 @@
   <br>
 <% end %>
 
-<%= link_to "Create new post", new_post_path %>
-<p>Return to <%= link_to "home", root_path %></p>
+<% if @user %>
+  <%= link_to "Create new post", new_post_path %><br><br>
+  <%= button_to "Logout", logout_path, method: :delete %>
+<% else %>
+  <p> Want to create a post? Log in <%= link_to "here", sign_in_path %></p>
+<% end %>
