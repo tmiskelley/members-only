@@ -5,7 +5,7 @@ class PostsController < ApplicationController
     @posts = Post.all
 
     if session[:user_id]
-      @user = User.find_by(id: session[:user_id])
+      current_user
     end
   end
   
@@ -42,7 +42,7 @@ class PostsController < ApplicationController
   end
 
   def logged_in?
-    true unless session[:user_id].nil?
+    session[:user_id].nil?
   end
 
   def post_params

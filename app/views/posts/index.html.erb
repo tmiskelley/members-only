@@ -1,9 +1,9 @@
 <h1>Member Posts</h1>
 
-<hr><br>
+<hr>
 
-<% if @user %>
-  <h2>Logged in as: <%= @user.username %></h2>
+<% if @current_user %>
+  <h2>Logged in as: <%= @current_user.username %></h2>
 <% end %>
 
 <% @posts.each do |post| %>
@@ -16,7 +16,7 @@
   <br>
 <% end %>
 
-<% if @user %>
+<% if @current_user %>
   <%= link_to "Create new post", new_post_path %><br><br>
   <%= button_to "Logout", logout_path, method: :delete %>
 <% else %>
